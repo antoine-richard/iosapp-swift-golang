@@ -1,0 +1,5 @@
+framework module "Weather" {
+    header "Weather.h"
+
+    export *
+}
