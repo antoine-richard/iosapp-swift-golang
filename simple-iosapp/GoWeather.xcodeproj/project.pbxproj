@@ -16,7 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7129FC441D6B95EE0010F483 /* simple-iosapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "simple-iosapp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7129FC441D6B95EE0010F483 /* GoWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7129FC471D6B95EE0010F483 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7129FC491D6B95EE0010F483 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7129FC4C1D6B95EE0010F483 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -50,7 +50,7 @@
 		7129FC451D6B95EE0010F483 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7129FC441D6B95EE0010F483 /* simple-iosapp.app */,
+				7129FC441D6B95EE0010F483 /* GoWeather.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -71,9 +71,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		7129FC431D6B95EE0010F483 /* simple-iosapp */ = {
+		7129FC431D6B95EE0010F483 /* GoWeather */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7129FC561D6B95EE0010F483 /* Build configuration list for PBXNativeTarget "simple-iosapp" */;
+			buildConfigurationList = 7129FC561D6B95EE0010F483 /* Build configuration list for PBXNativeTarget "GoWeather" */;
 			buildPhases = (
 				7129FC401D6B95EE0010F483 /* Sources */,
 				7129FC411D6B95EE0010F483 /* Frameworks */,
@@ -83,9 +83,9 @@
 			);
 			dependencies = (
 			);
-			name = "simple-iosapp";
+			name = GoWeather;
 			productName = "simple-iosapp";
-			productReference = 7129FC441D6B95EE0010F483 /* simple-iosapp.app */;
+			productReference = 7129FC441D6B95EE0010F483 /* GoWeather.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -104,7 +104,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 7129FC3F1D6B95EE0010F483 /* Build configuration list for PBXProject "simple-iosapp" */;
+			buildConfigurationList = 7129FC3F1D6B95EE0010F483 /* Build configuration list for PBXProject "GoWeather" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -117,7 +117,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7129FC431D6B95EE0010F483 /* simple-iosapp */,
+				7129FC431D6B95EE0010F483 /* GoWeather */,
 			);
 		};
 /* End PBXProject section */
@@ -264,7 +264,7 @@
 				INFOPLIST_FILE = "simple-iosapp/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.github.antoine-richard.simple-iosapp";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = GoWeather;
 			};
 			name = Debug;
 		};
@@ -280,14 +280,14 @@
 				INFOPLIST_FILE = "simple-iosapp/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.github.antoine-richard.simple-iosapp";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = GoWeather;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7129FC3F1D6B95EE0010F483 /* Build configuration list for PBXProject "simple-iosapp" */ = {
+		7129FC3F1D6B95EE0010F483 /* Build configuration list for PBXProject "GoWeather" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7129FC541D6B95EE0010F483 /* Debug */,
@@ -296,13 +296,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7129FC561D6B95EE0010F483 /* Build configuration list for PBXNativeTarget "simple-iosapp" */ = {
+		7129FC561D6B95EE0010F483 /* Build configuration list for PBXNativeTarget "GoWeather" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7129FC571D6B95EE0010F483 /* Debug */,
 				7129FC581D6B95EE0010F483 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
