@@ -12,6 +12,8 @@ import Weather
 class ViewController: UIViewController {
     
     @IBOutlet var Button:UIButton!
+    @IBOutlet var temperatureLabel:UILabel!
+    @IBOutlet var weatherLabel:UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,13 +27,8 @@ class ViewController: UIViewController {
     
     @IBAction func actionForButton() {
         let weather = Weather.GoWeatherFetch()
-        let alert:UIAlertView = UIAlertView(
-            title: weather.text(),
-            message: String(weather.temperature())+"°C",
-            delegate: self,
-            cancelButtonTitle: "Thanks!")
-        
-        alert.show()
+        self.temperatureLabel.text = String(weather.temperature())+"°C"
+        self.weatherLabel.text = weather.text()
     }
 
 }

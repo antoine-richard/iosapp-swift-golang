@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,22 +18,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4v3-2f-FZ8">
-                                <rect key="frame" x="20" y="28" width="236" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zPf-la-EcZ">
+                                <rect key="frame" x="300" y="300" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="48"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4v3-2f-FZ8">
+                                <rect key="frame" x="182" y="50" width="236" height="30"/>
                                 <state key="normal" title="What's the weather like in Nantes?"/>
                                 <connections>
                                     <action selector="actionForButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="rmx-fn-AMJ"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2IE-7V-RdY">
+                                <rect key="frame" x="300" y="400" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="zPf-la-EcZ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="5bh-cY-Fe0"/>
+                            <constraint firstItem="2IE-7V-RdY" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="400" id="M8B-m2-dg0"/>
+                            <constraint firstItem="zPf-la-EcZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WZh-Px-KhB"/>
+                            <constraint firstItem="4v3-2f-FZ8" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Y36-JB-oSG"/>
+                            <constraint firstItem="4v3-2f-FZ8" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="30" id="axe-NY-MIV"/>
+                            <constraint firstItem="2IE-7V-RdY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="njE-aw-lCx"/>
+                            <constraint firstItem="4v3-2f-FZ8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rlT-LP-HMW"/>
+                            <constraint firstItem="4v3-2f-FZ8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sfU-WN-jsf"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Y36-JB-oSG"/>
+                                <exclude reference="sfU-WN-jsf"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="Button" destination="4v3-2f-FZ8" id="TLS-dQ-L39"/>
+                        <outlet property="temperatureLabel" destination="zPf-la-EcZ" id="qsk-yA-5vs"/>
+                        <outlet property="weatherLabel" destination="2IE-7V-RdY" id="4We-Q6-uYK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="375" y="337"/>
         </scene>
     </scenes>
 </document>
