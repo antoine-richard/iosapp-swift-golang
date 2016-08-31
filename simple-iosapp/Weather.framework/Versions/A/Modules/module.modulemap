@@ -1,4 +1,6 @@
 framework module "Weather" {
+    header "GoWeather.h"
+    header "GoUniverse.h"
     header "Weather.h"
 
     export *

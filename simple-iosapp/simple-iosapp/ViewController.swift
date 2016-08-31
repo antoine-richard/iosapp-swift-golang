@@ -11,9 +11,12 @@ import Weather
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var city: UITextField!
     @IBOutlet var Button:UIButton!
     @IBOutlet var temperatureLabel:UILabel!
     @IBOutlet var weatherLabel:UILabel!
+    @IBOutlet var cityLabel: UILabel!
+    @IBOutlet weak var errorLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,9 +29,20 @@ class ViewController: UIViewController {
     }
     
     @IBAction func actionForButton() {
-        let weather = Weather.GoWeatherFetch()
-        self.temperatureLabel.text = String(weather.temperature())+"°C"
-        self.weatherLabel.text = weather.text()
+        var err: NSError?
+        var weather: GoWeatherCityWeather?
+        Weather.GoWeatherFetchByName(self.city.text, &weather, &err)
+        
+        if err != nil {
+            self.errorLabel.text = err?.localizedDescription
+            self.errorLabel.hidden = false
+        } else {
+            self.errorLabel.hidden = true
+            self.cityLabel.text = weather!.city()
+            self.temperatureLabel.text = String(weather!.temperature())+"°C"
+            self.weatherLabel.text = weather!.description()
+        }
+        
     }
 
 }
