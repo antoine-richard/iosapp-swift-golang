@@ -2,6 +2,7 @@ package weather
 
 import (
 	"errors"
+	"fmt"
 	"math"
 	"strings"
 
@@ -45,7 +46,7 @@ type apiCityWeather struct {
 	}
 }
 
-var apiKey = "API_KEY"
+var apiKey = "2f4f51fcd661a6201850daf84c512cf0" // TODO
 var client = gentleman.New()
 
 func kelvinToCelsius(temp float64) int {
@@ -59,8 +60,11 @@ func getWeatherByName(city string) (*apiCityWeather, error) {
 	req.SetQuery("appid", apiKey)
 
 	res, err := req.Send()
-	if err != nil || !res.Ok {
-		return nil, err
+	if err != nil {
+		return nil, errors.New("Request error: " + err.Error())
+	}
+	if !res.Ok {
+		return nil, errors.New(fmt.Sprintf("Invalid server response: %d\n", res.StatusCode))
 	}
 
 	weather := &apiCityWeather{}
