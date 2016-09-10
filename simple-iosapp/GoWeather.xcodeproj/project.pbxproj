@@ -12,7 +12,7 @@
 		7129FC4D1D6B95EE0010F483 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7129FC4B1D6B95EE0010F483 /* Main.storyboard */; };
 		7129FC4F1D6B95EE0010F483 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7129FC4E1D6B95EE0010F483 /* Assets.xcassets */; };
 		7129FC521D6B95EE0010F483 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7129FC501D6B95EE0010F483 /* LaunchScreen.storyboard */; };
-		71693F931D7C86FD00C614D7 /* Weather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71693F921D7C86FD00C614D7 /* Weather.framework */; };
+		71D2DAE11D84C0B300C296D1 /* Weather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71D2DAE01D84C0B300C296D1 /* Weather.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,7 +23,7 @@
 		7129FC4E1D6B95EE0010F483 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7129FC511D6B95EE0010F483 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7129FC531D6B95EE0010F483 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		71693F921D7C86FD00C614D7 /* Weather.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Weather.framework; sourceTree = "<group>"; };
+		71D2DAE01D84C0B300C296D1 /* Weather.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Weather.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,7 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71693F931D7C86FD00C614D7 /* Weather.framework in Frameworks */,
+				71D2DAE11D84C0B300C296D1 /* Weather.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,7 +43,7 @@
 			children = (
 				7129FC461D6B95EE0010F483 /* simple-iosapp */,
 				7129FC451D6B95EE0010F483 /* Products */,
-				71693F921D7C86FD00C614D7 /* Weather.framework */,
+				71D2DAE01D84C0B300C296D1 /* Weather.framework */,
 			);
 			sourceTree = "<group>";
 		};

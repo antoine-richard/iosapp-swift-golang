@@ -1,77 +1,69 @@
 package weather
 
 import (
-	"errors"
 	"fmt"
-	"math"
-	"strings"
 
-	"gopkg.in/h2non/gentleman.v1"
+	"strings"
 )
 
 type CityWeather struct {
-	City        string
-	Description string
-	Temperature int
+	City1Name string
+	City1Desc string
+	City1Temp string
+
+	City2Name string
+	City2Desc string
+	City2Temp string
+
+	City3Name string
+	City3Desc string
+	City3Temp string
 }
 
-func FetchByName(city string) (*CityWeather, error) {
-	city = strings.TrimSpace(city)
-	if city == "" {
-		return nil, errors.New("Please provide a city name")
-	}
-
-	apiCityWeather, err := getWeatherByName(city)
+func Fetch() (*CityWeather, error) {
+	apiPayload, err := getCityGroupWeather()
 	if err != nil {
 		return nil, err
 	}
+	return apiToApp(apiPayload), nil
+}
 
+func apiToApp(apiPayload *cityGroupPayload) *CityWeather {
 	return &CityWeather{
-			City:        apiCityWeather.Name,
-			Description: apiCityWeather.Weather[0].Description,
-			Temperature: kelvinToCelsius(apiCityWeather.Main.Temp)},
-		nil
-}
+		City1Name: getFormatedName(&apiPayload.List[0]),
+		City1Desc: getFormatedDescription(&apiPayload.List[0]),
+		City1Temp: getFormatedTemperature(&apiPayload.List[0]),
 
-type apiCityWeather struct {
-	Name    string
-	Weather []struct {
-		Main        string
-		Description string
-	}
-	Wind map[string]float64
-	Main struct {
-		Temp     float64
-		Humidity float64
+		City2Name: getFormatedName(&apiPayload.List[1]),
+		City2Desc: getFormatedDescription(&apiPayload.List[1]),
+		City2Temp: getFormatedTemperature(&apiPayload.List[1]),
+
+		City3Name: getFormatedName(&apiPayload.List[2]),
+		City3Desc: getFormatedDescription(&apiPayload.List[2]),
+		City3Temp: getFormatedTemperature(&apiPayload.List[2]),
 	}
 }
 
-var apiKey = "2f4f51fcd661a6201850daf84c512cf0" // TODO
-var client = gentleman.New()
-
-func kelvinToCelsius(temp float64) int {
-	return int(math.Floor(temp - 273.15))
+func getFormatedName(cityWeather *cityPayload) string {
+	fmt.Println(cityWeather)
+	return fmt.Sprintf("%v, %v", cityWeather.Name, cityWeather.Sys.Country)
 }
 
-func getWeatherByName(city string) (*apiCityWeather, error) {
-	req := client.Request().URL("api.openweathermap.org")
-	req.Path("/data/2.5/weather")
-	req.SetQuery("q", city)
-	req.SetQuery("appid", apiKey)
-
-	res, err := req.Send()
-	if err != nil {
-		return nil, errors.New("Request error: " + err.Error())
+func getFormatedDescription(cityWeather *cityPayload) (fullDescription string) {
+	descriptions := cityWeather.Weather
+	if len(descriptions) == 0 {
+		return "No description"
 	}
-	if !res.Ok {
-		return nil, errors.New(fmt.Sprintf("Invalid server response: %d\n", res.StatusCode))
+	for i, desc := range descriptions {
+		if i == 0 {
+			fullDescription += strings.ToUpper(string(desc.Description[0])) + strings.ToLower(desc.Description[1:])
+		} else {
+			fullDescription += ", " + strings.ToLower(desc.Description)
+		}
 	}
+	return fullDescription
+}
 
-	weather := &apiCityWeather{}
-	err = res.JSON(weather)
-	if err != nil {
-		return nil, err
-	}
-
-	return weather, nil
+func getFormatedTemperature(cityWeather *cityPayload) string {
+	return fmt.Sprintf("%.1f°C", cityWeather.Main.Temp)
 }
