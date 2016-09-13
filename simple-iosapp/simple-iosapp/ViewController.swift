@@ -7,6 +7,7 @@
 //
 
 import UIKit
+
 import Weather
 
 class ViewController: UIViewController {
@@ -56,8 +57,8 @@ class ViewController: UIViewController {
     
     func fetchWeatherByCity() {
         var err: NSError?
-        var weather: GoWeatherCityWeather?
-        Weather.GoWeatherFetch(&weather, &err)
+        var weatherData: NSData?
+        Weather.GoWeatherFetchDefaultCities(&weatherData, &err)
         
         if err != nil {
             self.weatherStack.hidden = true
@@ -66,17 +67,18 @@ class ViewController: UIViewController {
         } else {
             self.errorLabel.hidden = true
             
-            self.city1Name.text = weather!.city1Name()
-            self.city1Temp.text = weather!.city1Temp()
-            self.city1Desc.text = weather!.city1Desc()
-            
-            self.city2Name.text = weather!.city2Name()
-            self.city2Temp.text = weather!.city2Temp()
-            self.city2Desc.text = weather!.city2Desc()
-            
-            self.city3Name.text = weather!.city3Name()
-            self.city3Temp.text = weather!.city3Temp()
-            self.city3Desc.text = weather!.city3Desc()
+            let json = try? NSJSONSerialization.JSONObjectWithData(weatherData!, options: [])
+            if let cities = json as? [[String: AnyObject]] {
+                for city in cities {
+                    print(city["Name"]!)
+                    if let name = city["Name"] as? String {
+                        self.city1Name.text = name
+                    }
+                    //WIP
+                }
+            } else {
+                print("pouet")
+            }
             
             self.weatherStack.hidden = false
         }

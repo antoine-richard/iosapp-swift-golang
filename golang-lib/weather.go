@@ -1,51 +1,48 @@
 package weather
 
 import (
+	"encoding/json"
+	"errors"
 	"fmt"
 
 	"strings"
 )
 
 type CityWeather struct {
-	City1Name string
-	City1Desc string
-	City1Temp string
-
-	City2Name string
-	City2Desc string
-	City2Temp string
-
-	City3Name string
-	City3Desc string
-	City3Temp string
+	Name string
+	Desc string
+	Temp string
 }
 
-func Fetch() (*CityWeather, error) {
+func FetchDefaultCities() ([]byte, error) {
 	apiPayload, err := getCityGroupWeather()
 	if err != nil {
 		return nil, err
 	}
-	return apiToApp(apiPayload), nil
+	citiesWeather := apiToApp(apiPayload)
+	data, err := json.Marshal(citiesWeather)
+	if err != nil {
+		return nil, err
+	}
+	return data, nil
 }
 
-func apiToApp(apiPayload *cityGroupPayload) *CityWeather {
-	return &CityWeather{
-		City1Name: getFormatedName(&apiPayload.List[0]),
-		City1Desc: getFormatedDescription(&apiPayload.List[0]),
-		City1Temp: getFormatedTemperature(&apiPayload.List[0]),
+func FetchCustomCity(city string) (string, error) {
+	return "", errors.New("Not implemented yet :)")
+}
 
-		City2Name: getFormatedName(&apiPayload.List[1]),
-		City2Desc: getFormatedDescription(&apiPayload.List[1]),
-		City2Temp: getFormatedTemperature(&apiPayload.List[1]),
-
-		City3Name: getFormatedName(&apiPayload.List[2]),
-		City3Desc: getFormatedDescription(&apiPayload.List[2]),
-		City3Temp: getFormatedTemperature(&apiPayload.List[2]),
+func apiToApp(apiPayload *cityGroupPayload) (res []CityWeather) {
+	for _, v := range apiPayload.List {
+		res = append(res, CityWeather{
+			Name: getFormatedName(&v),
+			Desc: getFormatedDescription(&v),
+			Temp: getFormatedTemperature(&v),
+		})
 	}
+	return
 }
 
 func getFormatedName(cityWeather *cityPayload) string {
-	fmt.Println(cityWeather)
 	return fmt.Sprintf("%v, %v", cityWeather.Name, cityWeather.Sys.Country)
 }
 

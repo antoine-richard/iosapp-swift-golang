@@ -16,26 +16,16 @@
 @property(strong, readonly) id _ref;
 
 - (id)initWithRef:(id)ref;
-- (NSString*)city1Name;
-- (void)setCity1Name:(NSString*)v;
-- (NSString*)city1Desc;
-- (void)setCity1Desc:(NSString*)v;
-- (NSString*)city1Temp;
-- (void)setCity1Temp:(NSString*)v;
-- (NSString*)city2Name;
-- (void)setCity2Name:(NSString*)v;
-- (NSString*)city2Desc;
-- (void)setCity2Desc:(NSString*)v;
-- (NSString*)city2Temp;
-- (void)setCity2Temp:(NSString*)v;
-- (NSString*)city3Name;
-- (void)setCity3Name:(NSString*)v;
-- (NSString*)city3Desc;
-- (void)setCity3Desc:(NSString*)v;
-- (NSString*)city3Temp;
-- (void)setCity3Temp:(NSString*)v;
+- (NSString*)name;
+- (void)setName:(NSString*)v;
+- (NSString*)desc;
+- (void)setDesc:(NSString*)v;
+- (NSString*)temp;
+- (void)setTemp:(NSString*)v;
 @end
 
-FOUNDATION_EXPORT BOOL GoWeatherFetch(GoWeatherCityWeather** ret0_, NSError** error);
+FOUNDATION_EXPORT BOOL GoWeatherFetchCustomCity(NSString* city, NSString** ret0_, NSError** error);
+
+FOUNDATION_EXPORT BOOL GoWeatherFetchDefaultCities(NSData** ret0_, NSError** error);
 
 #endif
