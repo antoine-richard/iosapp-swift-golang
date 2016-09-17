@@ -9,9 +9,9 @@ import (
 )
 
 type CityWeather struct {
-	Name string
-	Desc string
-	Temp string
+	Name string `json:"name"`
+	Desc string `json:"desc"`
+	Temp string `json:"temp"`
 }
 
 func FetchDefaultCities() ([]byte, error) {

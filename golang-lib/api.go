@@ -35,7 +35,7 @@ func getCityGroupWeather() (*cityGroupPayload, error) {
 	req.Path("/data/2.5/group")
 
 	var nantes, paloAlto, prague = 2990969, 5380748, 3067696
-	req.SetQuery("id", fmt.Sprintf("%v,%v,%v", nantes, paloAlto, prague))
+	req.SetQuery("id", fmt.Sprintf("%v,%v,%v", paloAlto, nantes, prague))
 	req.SetQuery("units", "metric")
 	req.SetQuery("appid", apiKey)
 
