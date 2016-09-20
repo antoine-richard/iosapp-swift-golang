@@ -24,7 +24,7 @@
 - (void)setTemp:(NSString*)v;
 @end
 
-FOUNDATION_EXPORT BOOL GoWeatherFetchCustomCity(NSString* city, NSString** ret0_, NSError** error);
+FOUNDATION_EXPORT BOOL GoWeatherFetchCustomCity(NSString* city, NSData** ret0_, NSError** error);
 
 FOUNDATION_EXPORT BOOL GoWeatherFetchDefaultCities(NSData** ret0_, NSError** error);
 

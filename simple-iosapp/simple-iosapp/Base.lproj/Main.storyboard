@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -55,14 +55,8 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X0C-oA-Gxp">
-                                <rect key="frame" x="300" y="270" width="0.0" height="0.0"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="65" translatesAutoresizingMaskIntoConstraints="NO" id="5rW-wZ-2sZ">
-                                <rect key="frame" x="243" y="141" width="115" height="420"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="70" translatesAutoresizingMaskIntoConstraints="NO" id="5rW-wZ-2sZ">
+                                <rect key="frame" x="243" y="141" width="115" height="430"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="20y-k6-bIe">
                                         <rect key="frame" x="0.0" y="0.0" width="115" height="97"/>
@@ -88,7 +82,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3q6-pc-qgj">
-                                        <rect key="frame" x="0.0" y="162" width="115" height="97"/>
+                                        <rect key="frame" x="0.0" y="167" width="115" height="97"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B0T-g7-uDm">
                                                 <rect key="frame" x="0.0" y="0.0" width="115" height="20"/>
@@ -111,7 +105,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="W9i-g6-mEq">
-                                        <rect key="frame" x="0.0" y="323" width="115" height="97"/>
+                                        <rect key="frame" x="0.0" y="333" width="115" height="97"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A0O-VK-HQb">
                                                 <rect key="frame" x="0.0" y="0.0" width="115" height="20"/>
@@ -135,36 +129,79 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="bottom" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="vH1-lH-TEj">
+                                <rect key="frame" x="233" y="61" width="30" height="53"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="test" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X0C-oA-Gxp">
+                                        <rect key="frame" x="0.0" y="0.0" width="30" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="0.75172413793103443" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s11-d2-eWp">
+                                        <rect key="frame" x="0.0" y="23" width="30" height="30"/>
+                                        <state key="normal" title="OK">
+                                            <color key="titleColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="discardError" destination="BYZ-38-t0r" eventType="touchUpInside" id="UQf-Lg-vdl"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="s11-d2-eWp" firstAttribute="centerX" secondItem="X0C-oA-Gxp" secondAttribute="centerX" id="3JE-x9-peX"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lmz-M7-Ukc">
+                                <rect key="frame" x="328" y="512" width="142" height="30"/>
+                                <state key="normal" title="Display default cities"/>
+                                <connections>
+                                    <action selector="displayDefaultCities" destination="BYZ-38-t0r" eventType="touchUpInside" id="cbH-f4-dpg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="X0C-oA-Gxp" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-30" id="3DV-SB-yKL"/>
                             <constraint firstItem="5rW-wZ-2sZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4uz-Fn-pwF"/>
+                            <constraint firstItem="vH1-lH-TEj" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-30" id="5qb-ws-egK"/>
                             <constraint firstItem="M5o-mf-RSx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="71L-fk-B3S"/>
-                            <constraint firstItem="X0C-oA-Gxp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hyj-RP-5AE"/>
+                            <constraint firstItem="Lmz-M7-Ukc" firstAttribute="trailing" secondItem="M5o-mf-RSx" secondAttribute="trailing" id="RBB-tK-aaM"/>
+                            <constraint firstItem="Lmz-M7-Ukc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gHA-ro-vra"/>
+                            <constraint firstItem="vH1-lH-TEj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gHn-Af-cC8"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="M5o-mf-RSx" secondAttribute="bottom" constant="20" id="pzY-dP-0bz"/>
+                            <constraint firstItem="M5o-mf-RSx" firstAttribute="top" secondItem="Lmz-M7-Ukc" secondAttribute="bottom" constant="30" id="rFE-xB-YFQ"/>
                             <constraint firstItem="5rW-wZ-2sZ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-30" id="rhk-OJ-CXH"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="RBB-tK-aaM"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="Button" destination="4v3-2f-FZ8" id="TLS-dQ-L39"/>
                         <outlet property="city" destination="YVP-PA-DLB" id="i7D-9G-lC8"/>
+                        <outlet property="city1" destination="20y-k6-bIe" id="o9n-Pa-EZR"/>
                         <outlet property="city1Desc" destination="qVB-74-b0M" id="XZk-GT-cLp"/>
                         <outlet property="city1Name" destination="J06-3R-eRY" id="89U-OT-dVa"/>
                         <outlet property="city1Temp" destination="Lcd-ap-iw7" id="gnF-ic-DeY"/>
                         <outlet property="city2Desc" destination="asn-bN-2XZ" id="0cO-A1-aMv"/>
                         <outlet property="city2Name" destination="B0T-g7-uDm" id="JtA-uW-vsO"/>
                         <outlet property="city2Temp" destination="41h-dq-kdT" id="B51-rf-iXP"/>
+                        <outlet property="city3" destination="W9i-g6-mEq" id="BdS-cU-ORb"/>
                         <outlet property="city3Desc" destination="qMa-7E-8OA" id="ZUy-OY-6oY"/>
                         <outlet property="city3Name" destination="A0O-VK-HQb" id="H5C-Xa-ggS"/>
                         <outlet property="city3Temp" destination="Xxb-yu-tI7" id="bev-mD-vWY"/>
+                        <outlet property="discardErrorButton" destination="s11-d2-eWp" id="ned-E6-oMZ"/>
+                        <outlet property="displayDefaultCitiesButton" destination="Lmz-M7-Ukc" id="MDq-Pc-n25"/>
                         <outlet property="errorLabel" destination="X0C-oA-Gxp" id="VfN-xr-ynC"/>
+                        <outlet property="errorStack" destination="vH1-lH-TEj" id="uqS-GP-mEU"/>
                         <outlet property="weatherStack" destination="5rW-wZ-2sZ" id="Szj-tf-kDT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="373" y="225"/>
+            <point key="canvasLocation" x="348" y="203"/>
         </scene>
     </scenes>
 </document>

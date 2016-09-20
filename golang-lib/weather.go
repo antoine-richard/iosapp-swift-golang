@@ -19,7 +19,7 @@ func FetchDefaultCities() ([]byte, error) {
 	if err != nil {
 		return nil, err
 	}
-	citiesWeather := apiToApp(apiPayload)
+	citiesWeather := cityGroupToApp(apiPayload)
 	data, err := json.Marshal(citiesWeather)
 	if err != nil {
 		return nil, err
@@ -27,19 +27,36 @@ func FetchDefaultCities() ([]byte, error) {
 	return data, nil
 }
 
-func FetchCustomCity(city string) (string, error) {
-	return "", errors.New("Not implemented yet :)")
+func FetchCustomCity(city string) ([]byte, error) {
+	city = strings.TrimSpace(city)
+	if city == "" {
+		return nil, errors.New("Please provide a city name")
+	}
+	apiPayload, err := getCityWeather(city)
+	if err != nil {
+		return nil, err
+	}
+	cityWeather := citytoApp(apiPayload)
+	data, err := json.Marshal(cityWeather)
+	if err != nil {
+		return nil, err
+	}
+	return data, nil
 }
 
-func apiToApp(apiPayload *cityGroupPayload) (res []CityWeather) {
+func cityGroupToApp(apiPayload *cityGroupPayload) (res []CityWeather) {
 	for _, v := range apiPayload.List {
-		res = append(res, CityWeather{
-			Name: getFormatedName(&v),
-			Desc: getFormatedDescription(&v),
-			Temp: getFormatedTemperature(&v),
-		})
+		res = append(res, *citytoApp(&v))
 	}
 	return
+}
+
+func citytoApp(apiPayload *cityPayload) (res *CityWeather) {
+	return &CityWeather{
+		Name: getFormatedName(apiPayload),
+		Desc: getFormatedDescription(apiPayload),
+		Temp: getFormatedTemperature(apiPayload),
+	}
 }
 
 func getFormatedName(cityWeather *cityPayload) string {

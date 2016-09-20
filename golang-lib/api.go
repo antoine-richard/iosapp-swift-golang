@@ -27,7 +27,7 @@ type cityGroupPayload struct {
 	List []cityPayload
 }
 
-var apiKey = "2f4f51fcd661a6201850daf84c512cf0" // TODO
+var apiKey = "2f4f51fcd661a6201850daf84c512cf0" // TODO: hide this from the source code
 var client = gentleman.New()
 
 func getCityGroupWeather() (*cityGroupPayload, error) {
@@ -48,6 +48,32 @@ func getCityGroupWeather() (*cityGroupPayload, error) {
 	}
 
 	weather := &cityGroupPayload{}
+	err = res.JSON(weather)
+	if err != nil {
+		return nil, err
+	}
+
+	return weather, nil
+}
+
+// TODO: find a way to remove duplicated code
+func getCityWeather(city string) (*cityPayload, error) {
+	req := client.Request().URL("api.openweathermap.org")
+	req.Path("/data/2.5/weather")
+
+	req.SetQuery("q", city)
+	req.SetQuery("units", "metric")
+	req.SetQuery("appid", apiKey)
+
+	res, err := req.Send()
+	if err != nil {
+		return nil, errors.New("Request error: " + err.Error())
+	}
+	if !res.Ok {
+		return nil, errors.New(fmt.Sprintf("Invalid server response: %d\n", res.StatusCode))
+	}
+
+	weather := &cityPayload{}
 	err = res.JSON(weather)
 	if err != nil {
 		return nil, err
