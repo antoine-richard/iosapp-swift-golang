@@ -27,7 +27,6 @@ type cityGroupPayload struct {
 	List []cityPayload
 }
 
-var apiKey = "2f4f51fcd661a6201850daf84c512cf0" // TODO: hide this from the source code
 var client = gentleman.New()
 
 func getCityGroupWeather() (*cityGroupPayload, error) {
