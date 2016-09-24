@@ -18,3 +18,10 @@ func TestGetFormatedDescription(t *testing.T) {
 		}
 	}
 }
+
+func TestGetCityWeather(t *testing.T) {
+	_, err := getCityWeather("Paris")
+	if err != nil {
+		t.Errorf("getCityWeather returned an error: %v", err)
+	}
+}
